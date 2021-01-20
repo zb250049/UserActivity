@@ -101,9 +101,15 @@ label: "Activity & Attributes"
     type: string
     sql: ${TABLE}.Attributes.value ;;
   }
+
+  dimension: role_names {
+    label: "User Roles"
+    type: string
+    sql: ${TABLE}.role_names ;;
+  }
   dimension: updateddate {
     label: "Updated Date"
-    type: date
+    type: date_time
     sql: ${TABLE}.updateddate ;;
   }
 }
