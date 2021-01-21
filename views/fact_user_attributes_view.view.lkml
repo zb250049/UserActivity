@@ -74,11 +74,7 @@ label: "Activity & Attributes"
     sql: ${TABLE}.roleId ;;
   }
 
-  dimension: tenant_id {
-    label: "Tenant"
-    type: string
-    sql: ${TABLE}.tenant_id ;;
-  }
+
 
   measure: count {
     type: count
@@ -117,5 +113,11 @@ label: "Activity & Attributes"
     label: "Account"
     type: string
     sql: ${TABLE}.account ;;
+  }
+
+  dimension: tenant_id {
+    label: "Tenant"
+    type: string
+    sql: ${TABLE}.tenant_id ;;
   }
 }
