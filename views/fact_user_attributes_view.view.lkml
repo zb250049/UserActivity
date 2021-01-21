@@ -75,6 +75,7 @@ label: "Activity & Attributes"
   }
 
   dimension: tenant_id {
+    label: "Tenant"
     type: string
     sql: ${TABLE}.tenant_id ;;
   }

@@ -3,6 +3,7 @@ view: dim_tenants {
     ;;
 
   dimension: tenant_id {
+    label: "Tenant"
     type: string
     sql: ${TABLE}.tenant_id ;;
   }
