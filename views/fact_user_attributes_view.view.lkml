@@ -113,4 +113,9 @@ label: "Activity & Attributes"
     type: date_time
     sql: ${TABLE}.updateddate ;;
   }
+  dimension: account {
+    label: "Account"
+    type: string
+    sql: ${TABLE}.account ;;
+  }
 }
