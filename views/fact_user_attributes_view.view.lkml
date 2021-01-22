@@ -1,5 +1,5 @@
 view: fact_user_attributes_view {
-  sql_table_name: `com-centralreports-cug01-dev.master.Fact_UserAttributes_view`
+  sql_table_name: `SCO_Poc.Fact_UserAttributes_view`
     ;;
   drill_fields: [id]
 label: "Activity & Attributes"
@@ -119,5 +119,24 @@ label: "Activity & Attributes"
     label: "Tenant"
     type: string
     sql: ${TABLE}.tenant_id ;;
-  }
+    action: {
+      label: "Update tenant"
+      url: "https://us-central1-com-loyalpro-global-dev.cloudfunctions.net/Chang_UserTenant"
+      param: {
+        name:"tenant_id"
+        value: "{{value}}"
+      }
+      user_attribute_param: {
+        user_attribute: id
+        name: "user_id"
+      }
+      form_param: {
+        name: "changetenant"
+        type: string
+        label: "Tenant"
+        description: "Enter new tenant."
+        required: yes
+      }
+    }
+ }
 }

@@ -1,4 +1,5 @@
-connection: "centralreports"
+#connection: "centralreports"
+connection: "sco_poc"
 
 include: "*.view"
 # include: "*.dashboard.lookml"
@@ -8,9 +9,6 @@ datagroup: no_cache {
   max_cache_age: "1 second"
 }
 
-
-
-#persist_for: "0 seconds" # Cache expiration time for all the Reports data coming from db
 
 access_grant: allow_explore_loss_prevention {
   user_attribute: cr_explore_loss_prevention
@@ -57,12 +55,15 @@ access_grant: allow_explore_transaction_search {
   user_attribute: cr_explore_transaction_search
   allowed_values: ["allow"]
 }
+#persist_for: "0 seconds" # Cache expiration time for all the Reports data coming from db
+
+
 
 #          ------------------------------------    SALES BY DEPARTMENT REPORT    --------------------------------
 
 explore: fact_user_attributes_view {
   label: "Activity & Attributes"
-
+  persist_for: "0 seconds"
 
   join: dim_tenants {
     view_label: "Tenants"
@@ -71,7 +72,7 @@ explore: fact_user_attributes_view {
     sql_on: ${fact_user_attributes_view.tenant_id} = ${dim_tenants.tenant_id};;
   }
   join: dim_user_attributes {
-    view_label: "Tenants"
+    view_label: "attributes"
     relationship: many_to_one
     type: left_outer
     sql_on: ${fact_user_attributes_view.name} = ${dim_user_attributes.name};;
@@ -92,6 +93,6 @@ explore: fact_user_attributes_view {
     view_label: "Groups"
     relationship: many_to_one
     type: left_outer
-    sql_on: ${fact_user_attributes_view.group_id} = ${dim_user_groups.id};;
+    sql_on: ${fact_user_attributes_view.customer_source} = ${dim_looker_customers.customer_source};;
   }
-  }
+}

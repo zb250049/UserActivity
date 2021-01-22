@@ -1,5 +1,5 @@
 view: dim_user_attributes {
-  sql_table_name: `com-centralreports-cug01-dev.master.Dim_UserAttributes`
+  sql_table_name: `SCO_Poc.Dim_UserAttributes`
     ;;
 label: "attributes"
   dimension: name {
