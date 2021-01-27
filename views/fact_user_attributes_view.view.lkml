@@ -150,7 +150,7 @@ label: "Activity & Attributes"
       }
      }
     html:
-      {% if  {{value}} =="No Value" %}
+      {% if  {{value}} =="No Value~~~-2~~~~No value" %}
          <p><img src="http://findicons.com/files/icons/719/crystal_clear_actions/64/cancel.png" height=20 width=20>don't update</p>
       {% else %}
        <p><img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=20 width=20>Update</p>
