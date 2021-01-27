@@ -128,7 +128,7 @@ label: "Activity & Attributes"
   dimension: tenant_id {
     label: "Tenant Combined"
     type: string
-    sql: CASE WHEN ${user_key} != "No Value" Then concat( ${tenant_id_new},"~~~",Cast(${id} as STRING),"~~~",${user_key})   ELSE "No Value" END;;
+    sql: CASE WHEN ${user_key} != "No Value" Then concat( ${tenant_id_new},"~~~",Cast(${id} as STRING),"~~~",${user_key})   ELSE "No Value~~~-2~~~~No value" END;;
     hidden: yes
  }
 
