@@ -1,5 +1,5 @@
 #connection: "centralreports"
-connection: "sco_poc"
+connection: "master"
 
 include: "*.view"
 # include: "*.dashboard.lookml"

@@ -1,5 +1,5 @@
 view: dim_user_roles {
-  sql_table_name: `SCO_Poc.Dim_UserRoles`
+  sql_table_name: `master.Dim_UserRoles`
     ;;
   drill_fields: [id]
 label: "Roles"

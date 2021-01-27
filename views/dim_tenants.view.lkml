@@ -1,5 +1,5 @@
 view: dim_tenants {
-  sql_table_name: `SCO_Poc.Dim_Tenants`
+  sql_table_name: `master.Dim_Tenants`
     ;;
 
   dimension: tenant_id {

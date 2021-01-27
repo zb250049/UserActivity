@@ -1,5 +1,5 @@
 view: dim_user_groups {
-  sql_table_name: `SCO_Poc.Dim_UserGroups`
+  sql_table_name: `master.Dim_UserGroups`
     ;;
   drill_fields: [id]
 label: "Groups"
