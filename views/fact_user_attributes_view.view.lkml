@@ -128,7 +128,7 @@ label: "Activity & Attributes"
   dimension: tenant_id {
     label: "Tenant Combined"
     type: string
-    sql: CASE WHEN ${user_key} != "No Value" Then concat( ${tenant_id_new},"~~~",Cast(${id} as STRING),"~~~",${user_key})   ELSE "No Value~~~-2~~~~No Value" END;;
+    sql: CASE WHEN ${user_key} != "No Value" Then concat( ${tenant_id_new},"~~~",Cast(${id} as STRING),"~~~",${user_key})   ELSE "No Value~~~-2~~~No Value" END;;
     hidden: yes
  }
 
@@ -150,7 +150,7 @@ label: "Activity & Attributes"
       }
      }
     html:
-      {% if  {{value}} =="No Value~~~-2~~~~No Value" %}
+      {% if  {{value}} =="No Value~~~-2~~~No Value" %}
          <p><img src="http://findicons.com/files/icons/719/crystal_clear_actions/64/cancel.png" height=20 width=20>don't update</p>
       {% else %}
        <p><img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=20 width=20>Update</p>
