@@ -114,21 +114,32 @@ label: "Activity & Attributes"
     type: string
     sql: ${TABLE}.account ;;
   }
-
-  dimension: tenant_id {
+  dimension: user_key {
+    label: "User Key"
+    type: string
+    sql: ${TABLE}.user_key ;;
+    hidden: yes
+  }
+  dimension: tenant_id_new {
     label: "Tenant"
     type: string
     sql: ${TABLE}.tenant_id ;;
+    }
+  dimension: tenant_id {
+    label: "Tenant Combined"
+    type: string
+    sql: CASE WHEN ${user_key} != "No Value" Then concat( ${tenant_id_new},"~~~",Cast(${id} as STRING),"~~~",${user_key})   ELSE "No Value" END;;
+    hidden: yes
+ }
+
+  dimension: update_tenant {
+    sql: ${tenant_id} ;;
     action: {
-      label: "Update tenant"
+      label: "Update Tenant"
       url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_UserTenant"
       param: {
         name:"tenant_id"
         value: "{{value}}"
-      }
-      user_attribute_param: {
-        user_attribute: id
-        name: "user_id"
       }
       form_param: {
         name: "changetenant"
@@ -137,6 +148,13 @@ label: "Activity & Attributes"
         description: "Enter new tenant."
         required: yes
       }
-    }
+     }
+    html:
+      {% if  {{value}} =="No Value" %}
+         <p><img src="http://findicons.com/files/icons/719/crystal_clear_actions/64/cancel.png" height=20 width=20>dontupdate</p>
+      {% else %}
+       <p><img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=20 width=20>Update</p>
+      {% endif %};;
+
  }
 }
