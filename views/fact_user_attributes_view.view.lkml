@@ -30,11 +30,13 @@ label: "Activity & Attributes"
   }
 
   dimension: customer_source {
+    label: "Domain"
     type: string
     sql: ${TABLE}.CustomerSource ;;
   }
 
   dimension: days_since_last_log_in {
+    label : "Days Since Last Login"
     type: number
     sql: ${TABLE}.DaysSinceLastLogIn ;;
   }
@@ -55,6 +57,7 @@ label: "Activity & Attributes"
   }
 
   dimension_group: last_log_in {
+    label: "Last Login Date"
     type: time
     timeframes: [
       raw,
@@ -110,7 +113,7 @@ label: "Activity & Attributes"
     sql: ${TABLE}.updateddate ;;
   }
   dimension: account {
-    label: "Account"
+    label: "Status"
     type: string
     sql: ${TABLE}.account ;;
   }
