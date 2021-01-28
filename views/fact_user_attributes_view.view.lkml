@@ -137,6 +137,7 @@ label: "Activity & Attributes"
 
   dimension: update_tenant {
     sql: ${tenant_id} ;;
+    label: "Update Action"
     action: {
       label: "Update Tenant"
       url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_UserTenant"
@@ -154,9 +155,9 @@ label: "Activity & Attributes"
      }
     html:
       {% if  {{value}} =="No Value~~~-2~~~No Value" %}
-         <p><img src="http://findicons.com/files/icons/719/crystal_clear_actions/64/cancel.png" height=20 width=20>don't update</p>
+         <p><img src="http://findicons.com/files/icons/719/crystal_clear_actions/64/cancel.png" height=20 width=20></p>
       {% else %}
-       <p><img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=20 width=20>Update</p>
+       <p><img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=20 width=20></p>
       {% endif %};;
 
  }
