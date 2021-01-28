@@ -103,12 +103,12 @@ label: "Activity & Attributes"
   }
 
   dimension: role_names {
-    label: "User Roles"
+    label: "Roles"
     type: string
     sql: ${TABLE}.role_names ;;
   }
   dimension: updateddate {
-    label: "Updated Date"
+    label: "Lasr Updated Date"
     type: date_time
     sql: ${TABLE}.updateddate ;;
   }
