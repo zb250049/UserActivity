@@ -97,7 +97,7 @@ explore: fact_user_attributes_view {
   }
   join: audit_log {
     view_label: "Audit Log"
-    relationship: many_to_many
+    relationship: many_to_one
     type: full_outer
     sql_on:${audit_log.id}= ${fact_user_attributes_view.id}  ;;
   }
