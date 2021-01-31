@@ -123,21 +123,21 @@ label: "Activity & Attributes"
     sql: ${TABLE}.user_key ;;
     hidden: yes
   }
-  dimension: tenant_id_new {
+  dimension: tenant_id {
     label: "Tenant"
     type: string
     sql: ${TABLE}.tenant_id ;;
     }
-  dimension: tenant_id {
+  dimension: tenant_id_new {
     label: "Tenant Combined"
     type: string
-    sql: CASE WHEN ${tenant_id_new} != "No Value"  and ${user_key} != "No Value" and ${customer_source}="NCR" Then concat( ${tenant_id_new},"~~~",Cast(${id} as STRING),"~~~",${user_key})   ELSE "No Value~~~-2~~~No Value" END;;
+    sql: CASE WHEN ${tenant_id} != "No Value"  and ${user_key} != "No Value" and ${customer_source}="NCR" Then concat( ${tenant_id},"~~~",Cast(${id} as STRING),"~~~",${user_key})   ELSE "No Value~~~-2~~~No Value" END;;
     hidden: yes
  }
 
   dimension: update_tenant {
-    sql: ${tenant_id} ;;
-    label: "Update Action"
+    sql: ${tenant_id_new} ;;
+    label: "Update Tenant"
 
     action: {
       label: "Update Tenant"
@@ -158,7 +158,25 @@ label: "Activity & Attributes"
         required: yes
       }
      }
-     action: {
+
+    html:
+      {% if  {{value}} =="No Value~~~-2~~~No Value" %}
+         <p><img src="http://findicons.com/files/icons/719/crystal_clear_actions/64/cancel.png" height=20 width=20></p>
+      {% else %}
+       <p><img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=20 width=20></p>
+      {% endif %};;
+      }
+
+  dimension: role_id_new {
+    label: "Role Id Combined"
+    type: string
+    sql: CASE WHEN ${user_key} != "No Value"  Then concat( ${tenant_id},"~~~",Cast(${id} as STRING),"~~~",${user_key})   ELSE "No Value~~~-2~~~No Value" END;;
+    hidden: yes
+  }
+  dimension: update_role {
+    sql: ${role_id_new} ;;
+    label: "Update Role"
+    action: {
       label: "Update Role"
       url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_UserRole"
       param: {
@@ -192,8 +210,7 @@ label: "Activity & Attributes"
       {% else %}
        <p><img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=20 width=20></p>
       {% endif %};;
-      }
-
+  }
 
   dimension: audit {
     label: "Audit"
