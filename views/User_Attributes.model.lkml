@@ -95,4 +95,10 @@ explore: fact_user_attributes_view {
     type: left_outer
     sql_on: ${fact_user_attributes_view.customer_source} = ${dim_looker_customers.customer_source};;
   }
+  join: audit_log {
+    view_label: "Audit Log"
+    relationship: many_to_one
+    type: left_outer
+    sql_on:${audit_log.id}= ${fact_user_attributes_view.id}  ;;
+  }
 }
