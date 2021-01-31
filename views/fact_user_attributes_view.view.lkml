@@ -50,7 +50,7 @@ label: "Activity & Attributes"
     type: string
     sql: ${TABLE}.email ;;
     link: {label:"Exlpore audit Log"
-      url: "https://commercedevncr.cloud.looker.com/looks/1105?fields=audit_log.id,audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action&f[fact_user_attributes_view.email]={{ value }}" }
+      url: "https://commercedevncr.cloud.looker.com/looks/1105?fields=audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action&f[fact_user_attributes_view.email]={{ value }}" }
   }
 
   dimension: group_id {
@@ -219,6 +219,6 @@ label: "Activity & Attributes"
     type: string
     sql: ${TABLE}.audit ;;
     link: {label:"Exlpore audit Log"
-    url: "https://commercedevncr.cloud.looker.com/looks/1105?fields=audit_log.id,audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action" }
+    url: "https://commercedevncr.cloud.looker.com/looks/1105?fields=audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action" }
   }
 }
