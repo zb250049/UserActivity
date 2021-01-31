@@ -215,9 +215,10 @@ label: "Activity & Attributes"
   }
 
   dimension: audit {
-    label: "Last audit action"
+    label: "audit"
     type: string
     sql: ${TABLE}.audit ;;
-
+    link: {label:"Exlpore audit Log"
+    url: "https://commercedevncr.cloud.looker.com/looks/1105?fields=audit_log.id,audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action" }
   }
 }
