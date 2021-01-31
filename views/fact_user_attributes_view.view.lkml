@@ -143,6 +143,7 @@ label: "Activity & Attributes"
 
     action: {
       label: "Update Tenant"
+      icon_url: "https://looker.com/favicon.ico"
       url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_UserTenant"
       param: {
         name:"tenant_id"
@@ -180,6 +181,7 @@ label: "Activity & Attributes"
     label: "Update Role"
     action: {
       label: "Update Role"
+      icon_url: "https://looker.com/favicon.ico"
       url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_UserRole"
       param: {
         name:"tenant_id"
