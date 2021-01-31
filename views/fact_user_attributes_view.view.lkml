@@ -143,7 +143,6 @@ label: "Activity & Attributes"
 
     action: {
       label: "Update Tenant"
-      icon_url: "https://looker.com/favicon.ico"
       url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_UserTenant"
       param: {
         name:"tenant_id"
@@ -166,7 +165,7 @@ label: "Activity & Attributes"
       {% if  {{value}} =="No Value~~~-2~~~No Value" %}
          <p><img src="http://findicons.com/files/icons/719/crystal_clear_actions/64/cancel.png" height=20 width=20></p>
       {% else %}
-       <p><img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=20 width=20></p>
+        <p><img src="http://findicons.com/files/icons/573/must_have/48/check.png" height=20 width=20></p>
       {% endif %};;
       }
 
@@ -181,7 +180,6 @@ label: "Activity & Attributes"
     label: "Update Role"
     action: {
       label: "Update Role"
-      icon_url: "https://looker.com/favicon.ico"
       url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_UserRole"
       param: {
         name:"tenant_id"
