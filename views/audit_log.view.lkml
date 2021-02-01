@@ -39,6 +39,7 @@ view: audit_log {
       year
     ]
     sql: ${TABLE}.time ;;
+    html: {{ rendered_value | date: "%d/%m/%G %r" }} ;;
   }
 
   measure: count {

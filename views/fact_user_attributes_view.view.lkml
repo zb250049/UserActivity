@@ -27,6 +27,7 @@ label: "Activity & Attributes"
     convert_tz: no
     datatype: date
     sql: ${TABLE}.CrreatedDate ;;
+    html: {{ rendered_value | date: "%d/%m/%G" }} ;;
   }
 
   dimension: customer_source {
@@ -72,6 +73,7 @@ label: "Activity & Attributes"
     convert_tz: no
     datatype: date
     sql: ${TABLE}.LastLogIn ;;
+    html: {{ rendered_value | date: "%d/%m/%G" }} ;;
   }
 
   dimension: role_id {
@@ -113,6 +115,7 @@ label: "Activity & Attributes"
     label: "Last Updated Date"
     type: date_time
     sql: ${TABLE}.updateddate ;;
+    html: {{ rendered_value | date: "%d/%m/%G %r" }} ;;
   }
   dimension: account {
     label: "Status"
