@@ -59,7 +59,7 @@ label: "Activity & Attributes"
   }
 
   dimension_group: last_log_in {
-    label: "Last Login Date"
+    label: "Last Login"
     type: time
     timeframes: [
       raw,
@@ -110,7 +110,7 @@ label: "Activity & Attributes"
     sql: ${TABLE}.role_names ;;
   }
   dimension: updateddate {
-    label: "Lasr Updated Date"
+    label: "Last Updated Date"
     type: date_time
     sql: ${TABLE}.updateddate ;;
   }
@@ -215,7 +215,7 @@ label: "Activity & Attributes"
   }
 
   dimension: audit {
-    label: "audit"
+    label: "Audit"
     type: string
     sql: ${TABLE}.audit ;;
     link: {label:"Exlpore audit Log"
