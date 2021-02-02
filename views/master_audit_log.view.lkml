@@ -1,12 +1,12 @@
 view: audit_log {
-  sql_table_name: `com-centralreports-cug01-dev.master.AuditLog`
+  sql_table_name: `master.Audit_Log`
     ;;
   drill_fields: [id]
 
   dimension: id {
     primary_key: yes
     type: number
-    sql: ${TABLE}.id ;;
+    sql: ${TABLE}.Id ;;
   }
 
   dimension: action {
@@ -18,13 +18,13 @@ view: audit_log {
   dimension: email {
            label: "Email"
     type: string
-    sql: ${TABLE}.email ;;
+    sql: ${TABLE}.Email ;;
   }
 
   dimension: ps_user_name {
     label: "Updated By"
     type: string
-    sql: ${TABLE}.PS_userName ;;
+    sql: ${TABLE}.PSUserName ;;
   }
 
   dimension_group: time {
@@ -38,7 +38,7 @@ view: audit_log {
       quarter,
       year
     ]
-    sql: ${TABLE}.time ;;
+    sql: ${TABLE}.Time ;;
     html: {{ rendered_value | date: "%m/%d/%G %r" }} ;;
   }
 

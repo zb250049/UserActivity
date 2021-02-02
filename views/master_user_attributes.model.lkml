@@ -101,4 +101,8 @@ explore: fact_user_attributes_view {
     type: full_outer
     sql_on:${audit_log.id}= ${fact_user_attributes_view.id}  ;;
   }
+
+}
+explore:etl_audit_log {
+  view_label: "ETL Audit Log"
 }

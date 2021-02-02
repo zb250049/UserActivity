@@ -1,5 +1,5 @@
 view: dim_looker_customers {
-  sql_table_name: `master.Dim_LookerCustomers`
+  sql_table_name: `master.Dim_Looker_Customers`
     ;;
 
   dimension: customer_source {

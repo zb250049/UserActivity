@@ -1,12 +1,12 @@
 view: fact_user_attributes_view {
-  sql_table_name: `master.Fact_UserAttributes_view`
+  sql_table_name: `master.Fact_User_Attributes_view`
     ;;
   drill_fields: [id]
 label: "Activity & Attributes"
   dimension: id {
     primary_key: yes
     type: number
-    sql: ${TABLE}.id ;;
+    sql: ${TABLE}.Id ;;
   }
 
   dimension: attributes {
@@ -14,7 +14,7 @@ label: "Activity & Attributes"
     sql: ${TABLE}.Attributes ;;
   }
 
-  dimension_group: crreated {
+  dimension_group: created {
     type: time
     timeframes: [
       raw,
@@ -26,7 +26,7 @@ label: "Activity & Attributes"
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}.CrreatedDate ;;
+    sql: ${TABLE}.CreatedDate ;;
     html: {{ rendered_value | date: "%m/%d/%G" }} ;;
   }
 
@@ -44,19 +44,19 @@ label: "Activity & Attributes"
 
   dimension: display_name {
     type: string
-    sql: ${TABLE}.display_name ;;
+    sql: ${TABLE}.DisplayName ;;
   }
 
   dimension: email {
     type: string
-    sql: ${TABLE}.email ;;
+    sql: ${TABLE}.Email ;;
     link: {label:"Exlpore audit Log"
-      url: "https://commercedevncr.cloud.looker.com/looks/1105?fields=audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action&f[fact_user_attributes_view.email]={{ value }}" }
+      url: "https://commercedevncr.cloud.looker.com/looks/1107?fields=audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action&f[fact_user_attributes_view.email]={{ value }}" }
   }
 
   dimension: group_id {
     type: number
-    sql: ${TABLE}.groupId ;;
+    sql: ${TABLE}.GroupId ;;
   }
 
   dimension_group: last_log_in {
@@ -78,7 +78,7 @@ label: "Activity & Attributes"
 
   dimension: role_id {
     type: number
-    sql: ${TABLE}.roleId ;;
+    sql: ${TABLE}.RoleId ;;
   }
 
 
@@ -91,47 +91,49 @@ label: "Activity & Attributes"
   dimension: name {
     label: "Attribute Name"
     type: string
-    sql: ${TABLE}.Attributes.name ;;
+    sql: ${TABLE}.Attributes.Name ;;
   }
 
   dimension: source {
     label: "Attribute Source"
     type: string
-    sql: ${TABLE}.Attributes.source ;;
+    sql: ${TABLE}.Attributes.Source ;;
   }
 
   dimension: value {
     label: "Attribute Value"
     type: string
-    sql: ${TABLE}.Attributes.value ;;
+    sql: ${TABLE}.Attributes.Value ;;
   }
 
   dimension: role_names {
     label: "Roles"
     type: string
-    sql: ${TABLE}.role_names ;;
+    sql: ${TABLE}.RoleNames ;;
   }
   dimension: updateddate {
     label: "Last Updated Date"
     type: date_time
-    sql: ${TABLE}.updateddate ;;
+    sql: ${TABLE}.UpdatedDate ;;
     html: {{ rendered_value | date: "%m/%d/%G %r" }} ;;
+    link: {label:"Exlpore ETL data from Looker audit log"
+    url: "https://commercedevncr.cloud.looker.com/looks/1108?fields=etl_audit_log.phase,etl_audit_log.time_time,etl_audit_log.message" }
   }
   dimension: account {
     label: "Status"
     type: string
-    sql: ${TABLE}.account ;;
+    sql: ${TABLE}.Account ;;
   }
   dimension: user_key {
     label: "User Key"
     type: string
-    sql: ${TABLE}.user_key ;;
+    sql: ${TABLE}.UserKey ;;
     hidden: yes
   }
   dimension: tenant_id {
     label: "Tenant"
     type: string
-    sql: ${TABLE}.tenant_id ;;
+    sql: ${TABLE}.TenantId ;;
     }
   dimension: tenant_id_new {
     label: "Tenant Combined"
@@ -146,7 +148,7 @@ label: "Activity & Attributes"
 
     action: {
       label: "Update Tenant"
-      url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_UserTenant"
+      url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_User_Tenant"
       param: {
         name:"tenant_id"
         value: "{{value}}"
@@ -156,7 +158,7 @@ label: "Activity & Attributes"
         name: "ps_email"
       }
       form_param: {
-        name: "changetenant"
+        name: "change_tenant"
         type: string
         label: "Tenant"
         description: "Enter new tenant."
@@ -183,7 +185,7 @@ label: "Activity & Attributes"
     label: "Update Role"
     action: {
       label: "Update Role"
-      url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_UserRole"
+      url: "https://us-central1-com-centralreports-cug01-dev.cloudfunctions.net/Change_User_Role"
       param: {
         name:"tenant_id"
         value: "{{value}}"
@@ -193,7 +195,7 @@ label: "Activity & Attributes"
         name: "ps_email"
       }
       form_param: {
-        name: "changerole"
+        name: "change_role"
         type: select
         label: "Pick Role"
         option: {
@@ -220,8 +222,9 @@ label: "Activity & Attributes"
   dimension: audit {
     label: "Audit"
     type: string
-    sql: ${TABLE}.audit ;;
+    sql: ${TABLE}.Audit ;;
     link: {label:"Exlpore audit Log"
-    url: "https://commercedevncr.cloud.looker.com/looks/1105?fields=audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action" }
+    url: "https://commercedevncr.cloud.looker.com/looks/1107?fields=audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action" }
+
   }
 }
