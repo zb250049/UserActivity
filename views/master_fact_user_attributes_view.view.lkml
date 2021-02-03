@@ -1,5 +1,5 @@
 view: fact_user_attributes_view {
-  sql_table_name: `master.Fact_User_Attributes_view`
+  sql_table_name: `master.Fact_User_Attributes_View`
     ;;
   drill_fields: [id]
 label: "Activity & Attributes"
