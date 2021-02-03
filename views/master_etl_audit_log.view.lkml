@@ -14,6 +14,7 @@ view: etl_audit_log {
 
   dimension_group: time {
     type: time
+    label: "Updated date"
     timeframes: [
       raw,
       time,

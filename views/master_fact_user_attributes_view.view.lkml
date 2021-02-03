@@ -50,7 +50,7 @@ label: "Activity & Attributes"
   dimension: email {
     type: string
     sql: ${TABLE}.Email ;;
-    link: {label:"Exlpore audit Log"
+    link: {label:"View Audit Log"
       url: "https://commercedevncr.cloud.looker.com/looks/1107?fields=audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action&f[fact_user_attributes_view.email]={{ value }}" }
   }
 
@@ -112,11 +112,11 @@ label: "Activity & Attributes"
     sql: ${TABLE}.RoleNames ;;
   }
   dimension: updateddate {
-    label: "Last Updated Date"
+    label: "Last ETL Updated Date"
     type: date_time
     sql: ${TABLE}.UpdatedDate ;;
     html: {{ rendered_value | date: "%m/%d/%G %r" }} ;;
-    link: {label:"Exlpore ETL data from Looker audit log"
+    link: {label:"View ETL data from Looker audit log"
     url: "https://commercedevncr.cloud.looker.com/looks/1108?fields=etl_audit_log.phase,etl_audit_log.time_time,etl_audit_log.message" }
   }
   dimension: account {
@@ -197,7 +197,7 @@ label: "Activity & Attributes"
       form_param: {
         name: "change_role"
         type: select
-        label: "Pick Role"
+        label: "Select Role"
         option: {
           name: "CR_REPORTS_VIEWER"
           label: "CR_REPORTS_VIEWER"
@@ -207,7 +207,7 @@ label: "Activity & Attributes"
           label: "CR_REPORTS_USER"
         }
         required: yes
-        description: "Pick User or Viewer"
+        description: ""
         default: "viewer"
       }
     }
@@ -223,7 +223,7 @@ label: "Activity & Attributes"
     label: "Audit"
     type: string
     sql: ${TABLE}.Audit ;;
-    link: {label:"Exlpore audit Log"
+    link: {label:"View Audit Log"
     url: "https://commercedevncr.cloud.looker.com/looks/1107?fields=audit_log.ps_user_name,audit_log.email,audit_log.time_time,audit_log.action" }
 
   }
