@@ -12,18 +12,10 @@ view: etl_audit_log {
     sql: ${TABLE}.Phase ;;
   }
 
-  dimension_group: time {
-    type: time
+  dimension: time {
+    type: date_time
     label: "Updated date"
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
+    html: {{ rendered_value | date: "%m/%d/%G %r" }} ;;
     sql: ${TABLE}.Time ;;
   }
 

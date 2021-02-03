@@ -116,7 +116,7 @@ label: "Activity & Attributes"
     type: date_time
     sql: ${TABLE}.UpdatedDate ;;
     html: {{ rendered_value | date: "%m/%d/%G %r" }} ;;
-    link: {label:"View ETL data from Looker audit log"
+    link: {label:"View ETL Data Log"
     url: "https://commercedevncr.cloud.looker.com/looks/1108?fields=etl_audit_log.phase,etl_audit_log.time_time,etl_audit_log.message" }
   }
   dimension: account {

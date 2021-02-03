@@ -27,18 +27,9 @@ view: audit_log {
     sql: ${TABLE}.PSUserName ;;
   }
 
-  dimension_group: time {
-    type: time
-    label: "Updated date"
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
+  dimension: time {
+    type: date_time
+    label: "Updated Date"
     sql: ${TABLE}.Time ;;
     html: {{ rendered_value | date: "%m/%d/%G %r" }} ;;
   }
