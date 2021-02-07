@@ -104,8 +104,14 @@ label: "Activity & Attributes"
     label: "Attribute Value"
     type: string
     sql: ${TABLE}.Attributes.Value ;;
+    hidden:yes
   }
+  dimension: new_value {
+    label: "Attribute Value"
+    type: string
+    sql: CASE when ${name}="cr_user_key" then "******" else ${value} END;;
 
+  }
   dimension: role_names {
     label: "Roles"
     type: string
